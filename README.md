@@ -8,27 +8,56 @@
 ## Team "Git It Girls"
 - Ananya Arora
 - Manya Mehta
-- anushka tiwari
+- Anushka Tiwari
 
 ## Project Overview
-Brief description of your project and its goals.
+**CareTrack** is a lightweight, open-source client and case management platform built for nonprofits. It replaces spreadsheets and paper forms with a structured web app that handles client registration, service/visit logging, scheduling, and reporting - deployable for under $30/month.
+
+Built for the [OHack 2026 Spring WiCS Hackathon](https://www.ohack.dev/hack/2026_spring_wics_asu), serving nonprofits like NMTSA, Chandler CARE Center, ICM Food & Clothing Bank, and more.
+
+**Key features:**
+- Client registration with configurable demographic fields
+- Service & visit logging with chronological history
+- Role-based access (Admin vs Staff)
+- AI-powered photo-to-intake (snap a paper form → auto-fill client record)
+- Semantic search across case notes using natural language
+- CSV import/export for migrating from spreadsheets
+- Reporting dashboard with charts
 
 ## Tech Stack
-- Frontend:
-- Backend:
-- Database:
-- APIs:
+- Frontend: Next.js, React, Tailwind CSS
+- Backend: Next.js API routes
+- Database: Supabase (PostgreSQL) with RLS
+- APIs: Anthropic Claude API
 <!-- Add/modify as needed -->
 
 
 ## Getting Started
-Instructions on how to set up and run your project locally.
-
+clone this repo
 ```bash
-# Example commands
-git clone https://github.com/2026-ASU-WiCS-Opportunity-Hack/22-git-it-girls.git
-cd 22-git-it-girls
-# Add your setup commands here
+npm install
+```
+
+Copy the environment variables template:
+```bash
+cp .env.example .env.local
+```
+
+Fill in `.env.local` with your keys:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+ANTHROPIC_API_KEY=your_anthropic_key
+```
+
+Run the database schema and  data in your Supabase SQL editor:
+- `supabase/migrations/001_initial_schema.sql`
+- `supabase/seed.sql`
+
+Run locally:
+```bash
+npm run dev
 ```
 
 
