@@ -11,7 +11,7 @@
 - Anushka Tiwari
 
 ## Project Overview
-**CareTrack** is a lightweight, open-source client and case management platform built for nonprofits. It replaces spreadsheets and paper forms with a structured web app that handles client registration, service/visit logging, scheduling, and reporting — deployable for under $30/month.
+**CareTrack** is a lightweight, open-source client and case management platform built for nonprofits. It replaces spreadsheets and paper forms with a structured web app that handles client registration, service/visit logging, scheduling, and reporting - deployable for under $30/month.
 
 Built for the [OHack 2026 Spring WiCS Hackathon](https://www.ohack.dev/hack/2026_spring_wics_asu), serving nonprofits like NMTSA, Chandler CARE Center, ICM Food & Clothing Bank, and more.
 
