@@ -1,5 +1,17 @@
 export type Role = 'admin' | 'staff'
 
+export type FieldType = 'text' | 'number' | 'date' | 'boolean'
+
+export interface FieldDefinition {
+  id: string
+  label: string
+  field_key: string
+  field_type: FieldType
+  is_required: boolean
+  sort_order: number
+  created_at: string
+}
+
 export interface Profile {
   id: string
   role: Role
