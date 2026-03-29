@@ -47,9 +47,17 @@ CareTrack is a Next.js 16 app for nonprofit client/case management. Built for OH
 - AI-Powered Search: AiSearchBar component with AI toggle button on /clients; aiSearchClientsAction uses claude-haiku to parse NL query → structured Supabase filters (name, service_type, language) ✓
 - Multilingual UI EN/ES: translations.ts static dict, I18nProvider context (cookie-persisted), LanguageSwitcher in sidebar, Sidebar nav labels translated ✓
 
-**Still to build:**
-- Phase 5: Mobile responsiveness, Vercel deploy
+**Phase 5 + remaining pages (built):**
+- /schedule — appointments list (upcoming + past), mark complete/cancel buttons, /schedule/new form ✓
+- /admin/users — list all profiles, admin can toggle role admin↔staff ✓
+- /admin/audit — paginated audit log, filterable by action type and table name ✓
+- Mobile layout — hamburger drawer sidebar (MobileHeader), desktop sidebar hidden on mobile, lg:hidden top bar ✓
+- Vercel deploy prep — .env.example, next.config.ts with image remotePatterns, production build verified clean ✓
+
+**All 20 routes compile cleanly. Project is feature-complete.**
 
 **AI setup:** ANTHROPIC_API_KEY must be set in .env.local for all AI features to work. All AI features show a graceful error if key is missing.
+
+**Deploy:** Connect repo to Vercel, add env vars from .env.example in Vercel dashboard. Run 002_field_definitions.sql migration in Supabase SQL editor before first use.
 
 **How to apply:** Reference when continuing work on this project. Always await params/searchParams. Always check node_modules/next/dist/docs/ before writing Next.js-specific code.

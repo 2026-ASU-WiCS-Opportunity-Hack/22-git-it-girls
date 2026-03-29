@@ -1,111 +1,168 @@
-# 2026_spring_wics_asu Hackathon Project
+# CareTrack — Nonprofit Client & Case Management
+
+> Built by **Team "Git It Girls"** for the [OHack 2026 Spring WiCS Hackathon](https://www.ohack.dev/hack/2026_spring_wics_asu)
 
 ## Quick Links
 - [Hackathon Details](https://www.ohack.dev/hack/2026_spring_wics_asu)
 - [DevPost Submission](https://wics-ohack-sp26-hackathon.devpost.com/)
 - [Team Slack Channel](https://opportunity-hack.slack.com/app_redirect?channel=team-22-git-it-girls)
+- [Demo Video](#) *(add link)*
+- [Live App](#) *(add link)*
 
-## Team "Git It Girls"
-- Ananya Arora
-- Manya Mehta
-- Anushka Tiwari
+---
 
-## Project Overview
-**CareTrack** is a lightweight, open-source client and case management platform built for nonprofits. It replaces spreadsheets and paper forms with a structured web app that handles client registration, service/visit logging, scheduling, and reporting - deployable for under $30/month.
+## Team
 
-Built for the [OHack 2026 Spring WiCS Hackathon](https://www.ohack.dev/hack/2026_spring_wics_asu), serving nonprofits like NMTSA, Chandler CARE Center, ICM Food & Clothing Bank, and more.
+| Name | GitHub |
+|------|--------|
+| Ananya Arora | — |
+| Manya Mehta | — |
+| Anushka Tiwari | — |
 
-**Key features:**
-- Client registration with configurable demographic fields
-- Service & visit logging with chronological history
-- Role-based access (Admin vs Staff)
-- AI-powered photo-to-intake (snap a paper form → auto-fill client record)
-- Semantic search across case notes using natural language
-- CSV import/export for migrating from spreadsheets
-- Reporting dashboard with charts
+---
+
+## Problem Statement
+
+Nonprofits like NMTSA, Chandler CARE Center, and ICM Food & Clothing Bank manage hundreds of client interactions every week — but most still rely on spreadsheets, paper intake forms, and disconnected tools. This creates data gaps, makes reporting painful, and limits staff's ability to deliver consistent care.
+
+**CareTrack** replaces that friction with a structured, affordable web platform that any nonprofit can deploy for under $30/month.
+
+---
+
+## What It Does
+
+CareTrack is a lightweight, open-source client and case management platform built specifically for nonprofits. It centralizes everything — client records, service logs, appointments, and outcomes — in one place.
+
+### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| **Client Management** | Register clients with configurable demographic fields tailored to each org |
+| **Service Logging** | Log visits, service types, notes, and follow-up actions with a full chronological history |
+| **Scheduling** | Create and track appointments; update statuses (scheduled, completed, cancelled) |
+| **Role-Based Access** | Admin and Staff roles with row-level security enforced at the database layer |
+| **AI Photo-to-Intake** | Snap a photo of a paper intake form — Claude automatically fills the client record |
+| **AI Semantic Search** | Query clients in plain English ("find clients needing housing support") |
+| **AI Case Summaries** | One-click AI-generated summaries of a client's service history |
+| **Reporting Dashboard** | Charts for service distribution, monthly trends, and language demographics |
+| **CSV Import/Export** | Migrate data in from spreadsheets; export any time |
+| **Audit Log** | Every action is logged for compliance and transparency |
+
+---
 
 ## Tech Stack
-- Frontend: Next.js, React, Tailwind CSS
-- Backend: Next.js API routes
-- Database: Supabase (PostgreSQL) with RLS
-- APIs: Anthropic Claude API
-<!-- Add/modify as needed -->
 
+**Frontend**
+- [Next.js](https://nextjs.org/) (App Router) + React 19
+- [Tailwind CSS](https://tailwindcss.com/) v4
+- [Radix UI](https://www.radix-ui.com/) (accessible component primitives)
+- [Recharts](https://recharts.org/) (data visualization)
+- [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) (forms & validation)
+
+**Backend**
+- Next.js Server Actions & API Routes
+- [Supabase](https://supabase.com/) (PostgreSQL + Row-Level Security + Auth)
+
+**AI**
+- [Anthropic Claude API](https://www.anthropic.com/) — photo OCR intake, case summaries, semantic search
+
+**Other**
+- [PapaParse](https://www.papaparse.com/) (CSV parsing)
+- TypeScript throughout
+
+---
 
 ## Getting Started
-clone this repo
+
+### Prerequisites
+- Node.js 18+
+- A [Supabase](https://supabase.com/) project
+- An [Anthropic API key](https://console.anthropic.com/) (for AI features)
+
+### 1. Clone & install
+
 ```bash
+git clone https://github.com/2026-ASU-WiCS-Opportunity-Hack/22-git-it-girls.git
+cd 22-git-it-girls
 npm install
 ```
 
-Copy the environment variables template:
+### 2. Configure environment variables
+
 ```bash
 cp .env.example .env.local
 ```
 
-Fill in `.env.local` with your keys:
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+Fill in `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-ANTHROPIC_API_KEY=your_anthropic_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
-Run the database schema and  data in your Supabase SQL editor:
-- `supabase/migrations/001_initial_schema.sql`
-- `supabase/seed.sql`
+### 3. Set up the database
 
-Run locally:
+In your Supabase project's SQL editor, run the migration files in order:
+
+1. `supabase/migrations/001_initial_schema.sql` — core tables
+2. `supabase/migrations/002_field_definitions.sql` — custom field support
+
+Optionally seed demo data:
+
+```
+supabase/seed.sql
+```
+
+### 4. Run locally
+
 ```bash
 npm run dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000).
 
-## Checklist for the final submission
-### 0/Judging Criteria
-- [ ] Review the [judging criteria](https://www.ohack.dev/about/judges#judging-criteria) to understand how your project will be evaluated
+### 5. Build for production
 
-### 1/DevPost
-- [ ] Submit a [DevPost project to this DevPost page for our hackathon](https://wics-ohack-sp26-hackathon.devpost.com/) - see our [YouTube Walkthrough](https://youtu.be/rsAAd7LXMDE) or a more general one from DevPost [here](https://www.youtube.com/watch?v=vCa7QFFthfU)
-- [ ] Your DevPost final submission demo video should be 4 minutes or less
-- [ ] Link your team to your DevPost project on ohack.dev in [your team dashboard](https://www.ohack.dev/hack/2026_spring_wics_asu/manageteam)
-- [ ] Link your GitHub repo to your DevPost project on the DevPost submission form under "Try it out" links
+```bash
+npm run build
+npm start
+```
 
-### 2/GitHub
-- [ ] Add everyone on your team to your GitHub repo [YouTube Walkthrough](https://youtu.be/kHs0jOewVKI)
-- [ ] Make sure your repo is public
-- [ ] Make sure your repo has a MIT License
-- [ ] Make sure your repo has a detailed README.md (see below for details)
+---
 
+## Project Structure
 
-# What should your final README look like?
-Your readme should be a one-stop-shop for the judges to understand your project. It should include:
-- Team name
-- Team members
-- Slack channel
-- Problem statement
-- Tech stack
-- Link to your working project on the web so judges can try it out
-- Link to your DevPost project
-- Link to your final demo video
-- Instructions on how to run your project
-- Any other relevant links (e.g. Figma, GitHub repos for any open source libraries you used, etc.)
+```
+app/
+├── (auth)/login/           # Authentication
+├── (dashboard)/
+│   ├── admin/              # User management, custom fields, audit log
+│   ├── clients/            # Client list, profiles, new/edit
+│   ├── schedule/           # Appointments
+│   ├── services/           # Service logging
+│   └── reports/            # Analytics dashboard
+├── actions/                # Server actions (clients, services, AI, admin...)
+└── api/                    # REST endpoints (OAuth callback, photo intake, CSV export)
+components/
+├── clients/                # ClientForm, AiSearchBar, PhotoIntakeWidget, etc.
+├── schedule/               # Appointment status and forms
+├── reports/                # Chart components
+└── ui/                     # Shared Radix-based primitives
+supabase/
+├── migrations/             # SQL schema migrations
+└── seed.sql                # Demo data
+```
 
+---
 
-You'll use this repo as your resume in the future, so make it shine! 🌟
+## Deployment
 
-# Examples
-Examples of stellar readmes:
-- ✨ [2019 Team 3](https://github.com/2019-Arizona-Opportunity-Hack/Team-3)
-- ✨ [2019 Team 6](https://github.com/2019-Arizona-Opportunity-Hack/Team-6)
-- ✨ [2020 Team 2](https://github.com/2020-opportunity-hack/Team-02)
-- ✨ [2020 Team 4](https://github.com/2020-opportunity-hack/Team-04)
-- ✨ [2020 Team 8](https://github.com/2020-opportunity-hack/Team-08)
-- ✨ [2020 Team 12](https://github.com/2020-opportunity-hack/Team-12)
+CareTrack is designed to deploy on [Vercel](https://vercel.com/) with zero config — just connect your repo and add the environment variables. Estimated running cost is under **$30/month** (Supabase free tier + Claude API pay-as-you-go).
 
-Examples of winning DevPost submissions:
-- [1st place 2024](https://devpost.com/software/nature-s-edge-wildlife-and-reptile-rescue)
-- [2nd place 2024](https://devpost.com/software/team13-kidcoda-steam)
-- [1st place 2023](https://devpost.com/software/preservation-partners-search-engine)
-- [1st place 2019](https://devpost.com/software/zuri-s-dashboard)
-- [1st place 2018](https://devpost.com/software/matthews-crossing-data-manager-oj4ica)
+---
+
+## License
+
+[MIT](LICENSE)
